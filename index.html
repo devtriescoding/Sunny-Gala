@@ -1,0 +1,2153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7 Day YouTube Content Creator</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+            box-sizing: border-box;
+        }
+
+        /* Body Styling */
+        body {
+            font-family: 'Poppins', sans-serif;
+            /* Modern and premium font */
+            background-color: #f0f4f8;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            min-height: 100vh;
+            /* Removed overflow hidden */
+        }
+
+        /* Background Pattern */
+        .background-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* Initially covering full height */
+            background:
+                linear-gradient(90deg, rgba(44, 62, 80, 0.2) 1px, transparent 1px) 0 0,
+                linear-gradient(180deg, rgba(44, 62, 80, 0.2) 1px, transparent 1px) 0 0,
+                radial-gradient(circle, rgba(44, 62, 80, 0.3) 2px, transparent 2px) 0 0;
+            background-size: 60px 60px;
+            z-index: -1;
+            opacity: 0.4;
+            pointer-events: none;
+            clip-path: inset(0 0 calc(100% - 650px) 0);
+            /* Clip the pattern till CTA button */
+        }
+
+        /* Overlay Pattern */
+        .overlay-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 20%, rgba(0, 0, 0, 0.1), transparent 30%);
+            opacity: 0.5;
+            /* Overlay opacity for a subtle effect */
+            pointer-events: none;
+            /* Prevents interference with content */
+            z-index: -1;
+        }
+
+        @media (min-width: 768px) {
+            .background-pattern {
+                height: 900px;
+                /* Increase height for larger screens */
+                clip-path: inset(0 0 calc(100% - 900px) 0);
+                /* Clip the pattern till CTA button */
+            }
+        }
+
+        /* Heading and Subheading Styling */
+        h1 {
+            margin-top: 50px;
+            font-size: 3rem;
+            /* Increased size for desktop view */
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            /* Increased margin for better spacing */
+        }
+
+        p.subheading {
+            font-size: 1.2rem;
+            /* Increased size for desktop view */
+            color: #34495e;
+            margin-bottom: 2rem;
+            /* Increased margin for better spacing */
+            margin-top: 30px;
+        }
+
+        /* Video Container Styling */
+        .video-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            /* Max width for large screens */
+            margin: 0 auto 2rem;
+            /* Center and add bottom margin */
+            padding-bottom: 56.25%;
+            /* 16:9 Aspect Ratio */
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-top: 44px;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+            border-radius: 15px;
+        }
+
+        /* Enhanced Button Styling */
+        .cta-button {
+            display: inline-block;
+            padding: 1.5rem 3rem;
+            /* Increased padding */
+            font-size: 1rem;
+            /* Increased font size */
+            color: #fff;
+            background-color: #e74c3c;
+            border-radius: 50px;
+            /* Fully rounded corners */
+            text-transform: uppercase;
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 8px 15px rgba(231, 76, 60, 0.4);
+            /* Soft shadow */
+            margin-top: 35px;
+        }
+
+        .cta-button::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300%;
+            height: 300%;
+            background-color: rgba(255, 255, 255, 0.2);
+            /* Ripple effect color */
+            transform: translate(-50%, -50%) scale(0);
+            border-radius: 50%;
+            transition: transform 0.5s ease;
+        }
+
+        .cta-button:hover::before {
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .cta-button:hover {
+            background-color: #c0392b;
+            transform: translateY(-3px);
+            /* Slight lift on hover */
+            box-shadow: 0 12px 20px rgba(231, 76, 60, 0.6);
+            /* Enhanced shadow on hover */
+        }
+
+        /* Features Section Styling */
+        .features-section {
+            margin-top: 100px;
+        }
+
+        .features-section h2 {
+            font-size: 1.9rem;
+            color: #2c3e50;
+            margin-bottom: 30px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .feature-item i {
+            font-size: 3.5rem;
+            color: #e74c3c;
+            margin-bottom: 20px;
+        }
+
+        .feature-item h3 {
+            font-size: 1.5rem;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .feature-item p {
+            font-size: 1rem;
+            color: #34495e;
+            line-height: 1.5;
+        }
+
+        @media (min-width: 768px) {
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .features-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+                /* Adjust the font size to fit in 2 lines */
+            }
+
+            p.subheading {
+                font-size: 1rem;
+                /* Adjusted font size */
+            }
+
+            .background-pattern {
+                height: 80%;
+                /* Adjust for mobile view */
+            }
+
+            .video-container {
+                padding-bottom: 56.25%;
+                /* Keep aspect ratio same */
+            }
+
+            .cta-button {
+                padding: 1rem 2rem;
+                /* Increased padding for mobile */
+                font-size: 1rem;
+                /* Increased font size for mobile */
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2.3rem;
+                /* Slightly smaller font size for very small screens */
+            }
+
+            p.subheading {
+                font-size: 1.25rem;
+                /* Adjusted font size */
+            }
+
+            .cta-button {
+                padding: 0.75rem 1.5rem;
+                /* Adjusted padding for very small screens */
+                font-size: .95rem;
+                /* Adjusted font size for very small screens */
+            }
+        }
+
+        /* Desktop Media Queries */
+        @media (min-width: 1024px) {
+            .video-container {
+                max-width: 800px;
+                /* Keep max-width same */
+                margin-bottom: 2.5rem;
+                /* Increased margin for larger screens */
+                box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+                /* Enhance shadow for larger screens */
+            }
+        }
+
+        @media (min-width: 1440px) {
+            h1 {
+                font-size: 4rem;
+                /* Further increase font size for very large screens */
+            }
+
+            p.subheading {
+                font-size: 2.5rem;
+                /* Further increase font size for very large screens */
+            }
+
+            .cta-button {
+                padding: 1.2rem 2.25rem;
+                /* Larger padding for very large screens */
+                font-size: 1.15rem;
+                /* Larger font size for very large screens */
+            }
+
+            .video-container {
+                max-width: 800px;
+                /* Keep max-width same */
+                border-radius: 15px;
+                /* Keep border radius same */
+                box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+                /* More pronounced shadow for very large screens */
+            }
+        }
+
+        /* New Section Styling */
+        .new-section {
+            margin-top: 50px;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .new-section h2 {
+            font-size: 2rem;
+            color: #2c3e50;
+            margin-bottom: 40px;
+        }
+
+
+        /* Grid Styling */
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .grid-item {
+            padding: 40px 20px;
+            border-radius: 15px;
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            text-align: left;
+            min-height: 350px;
+            position: relative;
+            overflow: hidden;
+            /* Ensure the pseudo-element stays within the grid-item */
+        }
+
+        .grid-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, .7);
+            /* background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7)); */
+            /* Adjust the opacity as needed */
+            z-index: 1;
+        }
+
+        .grid-item h3,
+        .grid-item p {
+            position: relative;
+            z-index: 2;
+            /* Ensure text appears above the overlay */
+        }
+
+        .grid-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            /* Aligns to the top */
+            color: #fff;
+            z-index: 2;
+        }
+
+        .grid-item p {
+            font-size: 1rem;
+            line-height: 1.5;
+            margin-top: 30pxpx;
+            /* Aligns to the bottom */
+            z-index: 2;
+        }
+
+        /* Responsive Styling */
+        @media (min-width: 768px) {
+            .grid-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .grid-container {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .highlighted {
+            position: relative;
+            color: #d74444;
+            /* Adjust color as needed */
+            font-weight: bold;
+        }
+
+        .highlighted::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            /* Adjust this value to move the line closer or further from the text */
+            left: 20px;
+            width: 90px;
+            font-weight: 8900px;
+            height: 20px;
+            /* Height of the curved line */
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="10"><path d="M 0 5 C 25 0, 75 0, 100 5" stroke="red" fill="none" /></svg>') no-repeat;
+            background-size: contain;
+        }
+
+
+        /* General Styles */
+        .section-container {
+            display: flex;
+            flex-wrap: nowrap;
+            /* Ensure side-by-side layout */
+            align-items: flex-start;
+            /* Align items at the start of the container */
+            justify-content: space-between;
+            margin-top: 50px;
+        }
+
+        .accordion-container {
+            flex: 1 1 60%;
+            max-width: 60%;
+            box-sizing: border-box;
+            padding-right: 20px;
+            /* Add space between accordion and image */
+        }
+
+        .image-container {
+            flex: 1 1 35%;
+            max-width: 35%;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            margin-top: 75px;
+            align-items: flex-start;
+            /* Align items at the start */
+            margin-left: 10px;
+            /* Space between accordion and image */
+        }
+
+        .image-container img {
+            width: 100%;
+            height: auto;
+            /* Maintain aspect ratio */
+            max-height: calc(100vh - 100px);
+            /* Adjust height based on viewport and margins */
+            object-fit: cover;
+            /* Cover the container */
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Updated h2 Styles */
+        .accordion-title {
+            font-size: 1.5rem;
+            /* Reduced size */
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #2c3e50;
+            text-align: left;
+        }
+
+        /* Accordion Styles */
+        .accordion-item {
+            margin-bottom: 15px;
+            margin-inline: 12px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .accordion-header {
+            background-color: #ffffff;
+            color: #2c3e50;
+            font-weight: 600;
+            font-size: 1.1rem;
+            /* padding: 15px 10px; */
+            text-align: left;
+            width: 100%;
+            cursor: pointer;
+            border: none;
+            outline: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .accordion-header span {
+            flex: 1;
+            /* Makes the text fill the available space */
+            font-size: 1rem;
+            margin-inline: 20px;
+            /* Adjusted font size */
+            text-align: left;
+        }
+
+        .accordion-header i {
+            margin-left: auto;
+            /* Ensure icon stays on the right */
+            font-size: 1rem;
+            /* Adjust icon size */
+        }
+
+        .accordion-header:hover {
+            background-color: #f0f4f8;
+        }
+
+        .accordion-content {
+            padding: 0 20px;
+            background-color: #fafafa;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .accordion-content p {
+            margin-top: 10px;
+            color: #34495e;
+            font-size: 1rem;
+        }
+
+        .accordion-item.active .accordion-content {
+            max-height: 200px;
+        }
+
+        .accordion-item.active .accordion-header {
+            background-color: #f0f4f8;
+        }
+
+        .accordion-item.active .accordion-header i {
+            transform: rotate(180deg);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .section-container {
+                flex-direction: column;
+            }
+
+            .accordion-container {
+                max-width: 100%;
+                flex: 1 1 100%;
+                padding-right: 0;
+                margin-bottom: 20px;
+            }
+
+            .image-container {
+                max-width: 100%;
+                flex: 1 1 100%;
+                margin-left: 0;
+                /* Remove left margin for mobile */
+                margin-top: 20px;
+                /* Space above the image on mobile */
+            }
+
+            .image-container img {
+                margin-top: 0;
+                max-height: none;
+                /* Remove height restriction for mobile */
+            }
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .course-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .course-header h1 {
+            font-size: 24px;
+            color: #0c3c5d;
+            margin: 0;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #0c3c5d;
+            display: inline-block;
+        }
+
+        .course-header p {
+            color: #666;
+            margin: 10px 0 0;
+            font-size: 16px;
+            max-width: 700px;
+            margin: 10px auto;
+        }
+
+        .course-header span {
+            font-weight: bold;
+        }
+
+        .module {
+            margin-bottom: 15px;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #eaf3f9;
+            transition: background 0.3s ease;
+        }
+
+        .module:hover {
+            background: #d4e4f1;
+        }
+
+        .module-title {
+            padding: 15px;
+            background: #0c3c5d;
+            color: #fff;
+            font-size: 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+
+        .module-content {
+            max-height: 0;
+            /* Initially hidden */
+            overflow: hidden;
+            transition: max-height 0.5s ease, padding 0.5s ease;
+            /* Adjust duration as needed */
+            padding: 0;
+        }
+
+        .module-content.expanded {
+            max-height: 500px;
+            /* A sufficiently large value to fit content */
+            padding: 10px;
+        }
+
+
+        .arrow i {
+            transition: transform 0.3s ease;
+        }
+
+        .arrow i.rotated {
+            transform: rotate(180deg);
+        }
+
+        .module-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .module-content li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .module-content li i {
+            margin-right: 10px;
+            color: #0c3c5d;
+        }
+
+        .module-content li span {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .module-content li:last-child {
+            border-bottom: none;
+        }
+
+        /* Mobile-specific adjustments */
+        @media (max-width: 768px) {
+            .module-title {
+                font-size: 14px;
+                /* Reduce title size */
+                padding: 10px;
+                /* Adjust padding for smaller screens */
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                /* Ensure text doesn't wrap */
+            }
+
+            .module-title span {
+                font-size: 13px;
+                /* Reduce lessons text size */
+                white-space: nowrap;
+                /* Ensure "Lessons" text stays on one line */
+            }
+
+            .module-title .arrow {
+                margin-left: 10px;
+                /* Adjust spacing between text and chevron */
+            }
+
+            .module-title i {
+                font-size: 12px;
+                /* Decrease chevron icon size */
+            }
+
+            .module-content li {
+                font-size: 14px;
+                /* Adjust content list text size */
+                padding: 8px 0;
+                /* Adjust padding for list items */
+            }
+
+            .module-content li i {
+                font-size: 12px;
+                /* Adjust play icon size */
+                margin-right: 8px;
+                /* Adjust spacing between icon and text */
+            }
+
+            .module-content li span {
+                font-size: 12px;
+                /* Adjust duration text size */
+            }
+        }
+
+        .enroll-btn {
+            border-radius: 8px;
+        }
+
+        .enroll-btn:hover {
+            background: #c43e3e;
+        }
+
+        .arrow i {
+            transition: transform 0.3s ease;
+        }
+
+        /* Journey Section Styles */
+        .journey-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 50px;
+            background-color: #f5f8f7;
+            color: #2c3e50;
+            flex-wrap: wrap;
+            /* Ensures responsiveness */
+        }
+
+        .left-content {
+            width: 40%;
+            min-width: 300px;
+            margin-bottom: 20px;
+        }
+
+        .left-content h2 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 100px;
+        }
+
+        .highlighted-text {
+            font-size: 20px;
+            color: #4a7bbd;
+            display: flex;
+            align-items: center;
+        }
+
+        .arrow-icon {
+            margin-left: 10px;
+            font-size: 24px;
+            color: #e74c3c;
+        }
+
+        /* Apply margin-top only for desktop screens */
+        @media (min-width: 768px) {
+            .highlighted-text {
+                margin-top: 800px;
+            }
+        }
+
+        .right-content {
+            width: 50%;
+            min-width: 300px;
+        }
+
+        .accordion {
+            margin-right: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .accordion-item {
+            border-bottom: 1px solid #ccc;
+            margin-bottom: 10px;
+        }
+
+        .accordion-header {
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            padding: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .accordion-header i {
+            margin-right: 10px;
+        }
+
+        .toggle-icon {
+            transition: transform 0.3s ease;
+
+        }
+
+        .accordion-header:hover {
+            color: #3498db;
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            font-size: 16px;
+            line-height: 1.5;
+            color: #34495e;
+        }
+
+        .accordion-content p {
+            padding: 10px 0;
+        }
+
+        .accordion-item.active .accordion-content {
+            max-height: 150px;
+            /* Adjust according to content length */
+        }
+
+        .accordion-item.active .toggle-icon {
+            transform: rotate(180deg);
+            /* Rotate the icon when active */
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .journey-section {
+                flex-direction: column;
+                align-items: center;
+                /* Center the entire section horizontally */
+                padding: 20px;
+                /* Reduce padding for smaller screens */
+            }
+
+            .left-content,
+            .right-content {
+                width: 100%;
+                max-width: 400px;
+                /* Ensure the content doesn't overflow */
+                text-align: center;
+                /* Center all text content */
+            }
+
+            .left-content h2,
+            .highlighted-text {
+                text-align: center;
+                margin: 0 auto;
+                /* Ensure text is centered */
+
+            }
+
+            .accordion-header {
+                justify-content: center;
+                /* Center the header content */
+                text-align: center;
+                /* Ensure text is centered */
+            }
+
+            .accordion-header i:first-child {
+                margin-right: 10px;
+                /* Maintain spacing for the icon */
+            }
+
+            .accordion-content p {
+                padding: 0 10px;
+                /* Add padding to prevent text overflow */
+                text-align: center;
+                /* Center paragraph text */
+            }
+
+            .accordion-header i {
+                margin-right: 10px;
+            }
+        }
+
+
+        /* General CSS */
+        .left-content {
+            text-align: center;
+            /* Center the text in the container */
+            position: relative;
+            padding: 20px;
+        }
+
+        .highlighted-text {
+            font-family: 'YourFontHere', sans-serif;
+            /* Replace with your desired font */
+            font-size: 24px;
+            /* Adjust the size as needed */
+            color: #3B3F7F;
+            /* Set to your color scheme */
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .highlighted-text i {
+            margin-left: 10px;
+            /* Space between text and arrow icon */
+            color: #F54B64;
+            /* Set the arrow color */
+        }
+
+        /* Responsive Styling */
+        @media (max-width: 768px) {
+            .highlighted-text {
+                font-size: 20px;
+                /* Adjust font size for smaller screens */
+            }
+
+            .highlighted-text i {
+                font-size: 18px;
+                /* Adjust arrow icon size for smaller screens */
+
+            }
+        }
+
+        /* Include Font Awesome from a CDN or your local copy */
+        @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+
+        .bonuses-section {
+            text-align: center;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            color: #001a38;
+            padding: 50px 20px;
+        }
+
+        .bonuses-section h2 {
+            font-size: 22px;
+            margin-bottom: 30px;
+            color: #001a38;
+        }
+
+        .bonuses-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .bonus-item {
+            background-color: #002142;
+            /* Dark Blue Background */
+            color: white;
+            border: 2px solid transparent;
+            border-radius: 10px;
+            padding: 20px;
+            width: 280px;
+            /* Adjusted width for better fit */
+            text-align: left;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+
+        .bonus-item:hover {
+            background-color: #ffffff;
+            /* White background on hover */
+            color: #001a38;
+            /* Text color on hover */
+            border-color: #007bff;
+            /* Light Blue border on hover */
+        }
+
+        .bonus-item .icon {
+            margin-bottom: 15px;
+            font-size: 28px;
+            /* Adjusted icon size */
+            color: #007bff;
+            /* Consistent icon color */
+        }
+
+        .bonus-item h3 {
+            font-size: 18px;
+            /* Consistent heading size */
+            margin-bottom: 10px;
+            color: inherit;
+            /* Inherit color for consistency */
+        }
+
+        .bonus-item p {
+            font-size: 14px;
+            /* Text size adjusted for readability */
+            color: inherit;
+            /* Inherit color for consistency */
+        }
+
+        @media (max-width: 768px) {
+            .bonuses-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .bonus-item {
+                width: 100%;
+            }
+        }
+
+        /* Creators Section Styling */
+        .creators-section {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: #f9f9f9;
+        }
+
+        .creators-section h2 {
+            font-size: 1.8rem;
+            color: #234567;
+            font-family: 'Arial', sans-serif;
+            margin-bottom: 30px;
+        }
+
+        .heart-icon {
+            color: #FF5F5F;
+        }
+
+        .creators-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .creator-card {
+            background-color: #18365C;
+            /* Dark background */
+            color: #fff;
+            border-radius: 15px;
+            overflow: hidden;
+            width: 90%;
+            max-width: 350px;
+            padding: 20px;
+            box-sizing: border-box;
+            border: 2px solid transparent;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .creator-card.highlighted {
+            background-color: #f9f7e5;
+            /* Light background */
+            color: #18365C;
+            border-color: #e3e1c6;
+        }
+
+        .creator-photo img {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+        }
+
+        .creator-info h3 {
+            font-size: 1.2rem;
+            margin: 15px 0 10px;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .creator-info h3 span {
+            font-size: 0.9rem;
+            display: block;
+            margin-top: 5px;
+        }
+
+        .creator-info p {
+            font-family: 'Roboto', 'Open Sans', 'Lato', sans-serif;
+            /* Modern font */
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #e0e0e0;
+            /* Light color for dark background */
+            text-align: left;
+            /* Align text to the left for modern design */
+            margin-top: 15px;
+        }
+
+        .creator-card.highlighted .creator-info p {
+            color: #333333;
+            /* Dark color for light background */
+        }
+
+        /* Responsive Design */
+        @media (min-width: 768px) {
+            .creators-container {
+                flex-direction: row;
+                justify-content: space-around;
+                gap: 10px;
+            }
+
+            .creator-card {
+                width: 30%;
+                max-width: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .creator-card {
+                width: 100%;
+                max-width: 100%;
+            }
+        }
+
+        .subscribers-section {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: #f9f9f9;
+            color: #333;
+            font-family: 'Roboto', sans-serif;
+            /* Use the appropriate font */
+        }
+
+        .section-heading {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .heart {
+            color: #e74c3c;
+        }
+
+        .reviews-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            max-width: 1200px;
+            /* Ensure it fits well within larger screens */
+            margin: 0 auto;
+            /* Center the container */
+        }
+
+        .review-card {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            flex: 1;
+            max-width: 32%;
+            /* Ensure three cards fit in one line with space between them */
+            box-sizing: border-box;
+            color: #000;
+            text-align: left;
+            font-size: 14px;
+            border: none;
+            /* No shadows */
+        }
+
+        .review-card img {
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        .cta-button2 {
+            background-color: #e74c3c;
+            color: #fff;
+            padding: 12px 24px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            margin-top: 30px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .cta-button2:hover {
+            background-color: #c0392b;
+        }
+
+        @media (max-width: 992px) {
+            .reviews-container {
+                flex-wrap: wrap;
+            }
+
+            .review-card {
+                max-width: 48%;
+                /* Two cards per line for medium screens */
+                margin-bottom: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .reviews-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .review-card {
+                width: 100%;
+                max-width: 400px;
+            }
+        }
+
+        .faq-section {
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+            margin: 0 auto;
+            /* Center align the entire section */
+            color: #2a3f5499;
+        }
+
+        h1 {
+            font-size: 2rem;
+            color: #2a3f54;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #e3e3e3;
+            margin-bottom: 10px;
+        }
+
+        .faq-item label {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 15px;
+            font-size: 1rem;
+            color: #2a3f54CC;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .faq-item label span {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            /* Spacing between text and icon */
+            text-align: left;
+        }
+
+        .faq-item label:hover {
+            background-color: #eef2f7;
+        }
+
+        .faq-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-in-out, padding 0.3s;
+            padding: 0 15px;
+            text-align: left;
+        }
+
+        .faq-item label i {
+            transition: transform 0.3s ease-in-out;
+            color: #2a3f54;
+            margin-left: 10px;
+            /* Additional spacing if needed */
+        }
+
+        /* Media Query for Mobile View */
+        @media (max-width: 768px) {
+            .faq-item label {
+                font-size: 0.9rem;
+                /* Adjust font size for mobile */
+            }
+
+            .faq-section {
+                max-width: 90%;
+                /* Reduce the max-width for mobile */
+            }
+
+            .faq-item label span {
+                gap: 8px;
+                /* Adjust spacing on mobile for icons */
+            }
+
+            .faq-content {
+                padding: 0 10px;
+                /* Reduce padding for mobile */
+            }
+
+        }
+
+        /* Media Query for Desktop View */
+        @media (min-width: 769px) {
+            .faq-section {
+                max-width: 60%;
+                /* Center align the FAQ items on desktop */
+            }
+
+            .faq-item label {
+                font-size: 1.1rem;
+                /* Slightly larger text on desktop */
+            }
+        }
+
+
+        /* Modern footer styling */
+        .footer {
+            width: 100%;
+            background-color: #1e1e2f;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px 0;
+            margin-bottom: 30px;
+        }
+
+        .content {
+            text-align: center;
+            color: #d1d1e0;
+            max-width: 800px;
+            width: 100%;
+            padding: 0 20px;
+        }
+
+        .content .title {
+            font-size: 24px;
+            font-weight: 600;
+            margin: 5px 0;
+            color: #ffffff;
+        }
+
+        .content .copyright {
+            font-size: 14px;
+            margin-bottom: 15px;
+            color: #b0b0c3;
+            letter-spacing: 0.5px;
+        }
+
+        .icons {
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .icons a {
+            color: #ffffff;
+            margin: 0 15px;
+            font-size: 28px;
+            text-decoration: none;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .icons a:hover {
+            color: #ff6f61;
+            transform: scale(1.1);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .content .title {
+                font-size: 20px;
+            }
+
+            .content .copyright {
+                font-size: 12px;
+            }
+
+            .icons a {
+                font-size: 24px;
+                margin: 0 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .content .title {
+                font-size: 18px;
+            }
+
+            .content .copyright {
+                font-size: 11px;
+            }
+
+            .icons a {
+                font-size: 22px;
+                margin: 0 10px;
+            }
+        }
+
+        /* Sticky Strip */
+        .sticky-strip {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #121315;
+            padding: 10px 0;
+            display: none;
+            /* Hidden by default */
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+            z-index: 99999;
+            /* Very high z-index to ensure it stays on top */
+        }
+
+        .strip-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 90%;
+            /* Ensures content stays within margins */
+            margin: 0 auto;
+            color: white;
+        }
+
+        .alert-text {
+            font-size: 14px;
+            margin-left: 10px;
+            flex-grow: 1;
+            /* Ensures the text takes up the available space */
+        }
+
+        .enroll-btn {
+            background-color: #FF5A5F;
+            color: white;
+            border: none;
+            margin-left: 20px;
+            margin-top: 0px;
+            padding: 12px 15px;
+            /* Reduced padding for a smaller button */
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-right: 10px;
+            white-space: nowrap;
+            /* Ensures the button text stays on one line */
+            text-align: center;
+        }
+
+        .enroll-btn:hover {
+            background-color: #E04D4F;
+        }
+
+        /* Responsive: Show on mobile, hide on larger screens */
+        @media screen and (max-width: 768px) {
+            .sticky-strip {
+                display: block;
+            }
+        }
+
+        @media screen and (min-width: 769px) {
+            .sticky-strip {
+                display: none;
+            }
+        }
+
+        .my {
+            margin-bottom: 20px;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <div class="background-pattern"></div>
+    <div class="overlay-pattern"></div>
+
+    <h1>7 Day YouTube Content Creator</h1>
+    <p class="subheading"><b>Master Long-Form Videos in 7 Days. </b> Your Ultimate
+        Roadmap to YouTube Success.</p>
+
+    <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/ZmNB2_SpZ5Q" title="YouTube video player" allowfullscreen></iframe>
+    </div>
+
+    <a href="#" class="cta-button">APPLY NOW <i class="fas fa-arrow-right"></i></a>
+
+    <div class="features-section">
+        <h2>Are you a creator <b>Struggling</b> with these challenges?</h2>
+        <div class="features-grid">
+            <div class="feature-item">
+                <i class="fas fa-chart-line"></i>
+                <h3>Organic Reach and Engagement</h3>
+                <p>Frustrated with slow subscriber <br>growth and low engagement <br> on your YouTube videos, <br>even
+                    though you’re putting <br> in a lot of effort?</p>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-video"></i>
+                <h3>Shooting & Editing High-Quality Videos</h3>
+                <p>Finding it tough to create <br>YouTube videos that stand out in <br>quality and creativity, even with
+                    <br>your best efforts?
+                </p>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-calendar-alt"></i>
+                <h3>Lack of a Consistent Production System</h3>
+                <p>Struggling to maintain a regular schedule of engaging YouTube <br>content because you lack an
+                    <br>effective system?
+                </p>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-bullhorn"></i>
+                <h3>Marketing Your Business on YouTube</h3>
+                <p>Uncertain about how to effectively market your business on YouTube, potentially missing out on oppor-
+                    tunities to showcase your brand’s
+                    <br> value and reach.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="new-section">
+        <h2>By the end of this course <span class="highlighted">you will</span></h2>
+        <div class="grid-container">
+            <div class="grid-item"
+                style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiZxJjRxiY3Mg6dysQa5CTKMuRTAftMLh8Dv1ZQGGKFUc_i86m-0GmVF8QPbYgzy_CiQe3kUWnW-NGXqHYMkAIv-yurjtIksUzlyw3zg2MuaHOpcSUx73qqcqPfDyrHbH9ZZ5lxZYmNi2Khtzb5EW0v501Sh7jHZP7JacM3gpH-c8TBBqQX7aapIMEEfgOO/s1600/Grow%20your%20Engagement.jpeg');">
+                <h3>Grow Your YouTube Reach & Engagement</h3>
+                <p>Apply my proven growth strategies, including the 7C
+                    Framework, to dramatically enhance your YouTube
+                    presence and audience engagement.</p>
+            </div>
+
+            <div class="grid-item"
+                style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiZxJjRxiY3Mg6dysQa5CTKMuRTAftMLh8Dv1ZQGGKFUc_i86m-0GmVF8QPbYgzy_CiQe3kUWnW-NGXqHYMkAIv-yurjtIksUzlyw3zg2MuaHOpcSUx73qqcqPfDyrHbH9ZZ5lxZYmNi2Khtzb5EW0v501Sh7jHZP7JacM3gpH-c8TBBqQX7aapIMEEfgOO/s1600/Grow%20your%20Engagement.jpeg');">
+                <h3>Master Your YouTube Shooting & Editing Skills</h3>
+                <p>Gain proficiency in creating high-quality YouTube videos
+                    with practical, easy-to-follow shooting and editing
+                    techniques tailored to different content styles.</p>
+            </div>
+            <div class="grid-item" style="background-image: url('/Grow your Engagement.jpeg');">
+                <h3>Efficiently Create YouTube Videos with the 1-Hour
+                    System</h3>
+                <p>Implement the 1-Hour System to produce more YouTube
+                    videos in less time, streamlining your content creation
+                    process.</p>
+            </div>
+            <div class="grid-item"
+                style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiZxJjRxiY3Mg6dysQa5CTKMuRTAftMLh8Dv1ZQGGKFUc_i86m-0GmVF8QPbYgzy_CiQe3kUWnW-NGXqHYMkAIv-yurjtIksUzlyw3zg2MuaHOpcSUx73qqcqPfDyrHbH9ZZ5lxZYmNi2Khtzb5EW0v501Sh7jHZP7JacM3gpH-c8TBBqQX7aapIMEEfgOO/s1600/Grow%20your%20Engagement.jpeg');">
+                <h3>Confidently Price Your YouTube Marketing Projects</h3>
+                <p>Learn to accurately determine your worth with the Paid
+                    Partnership Price Calculator and confidently market your
+                    business on YouTube.</p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="section-container">
+        <div class="accordion-container">
+            <h2 class="my">Your Complete Toolkit for Mastering YouTube Videos</h2>
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <span>🧠 The Core Curriculum</span> &nbsp; &nbsp;
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="accordion-content">
+                    <p>3+ hours of material covering everything I know about
+                        YouTube videos—from finding your unique niche,
+                        generating endless ideas, filming, editing, growing your
+                        channel, monetizing, and turning your passion into a
+                        profitable brand. This curriculum is your blueprint for
+                        success on YouTube.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <span>🔑 Lifetime Access</span> &nbsp; &nbsp;
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="accordion-content">
+                    <p>Enjoy lifetime access to "7 Day YouTube Creator,"
+                        including all future updates. As YouTube evolves, so will
+                        the course, ensuring you always have the latest and
+                        most effective strategies at your fingertips.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <span>📕 7 Day YouTube Creator Workbook</span> &nbsp;
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="accordion-content">
+                    <p>An Exclusive Digital Workbook with exercises and
+                        guidelines for practical, hands-on learning.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <span>📲 1-Hour System</span> &nbsp; &nbsp;
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="accordion-content">
+                    <p>Replicate my exact system to grow your audience and
+                        build your brand, all while optimizing your time
+                        effectively.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <span>📆 Weekly Content Calendar</span> &nbsp; &nbsp;
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="accordion-content">
+                    <p>A customizable calendar to plan and organize your
+                        YouTube content effectively.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <span>🎯 120 Days Action Plan</span> &nbsp; &nbsp;
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="accordion-content">
+                    <p>A strategic plan to guide your YouTube growth over the
+                        first four months.</p>
+                </div>
+            </div>
+        </div>
+        <div class="image-container">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEih342ynqL8C1H65gH2VW0u6yTr4EDOEW59UxuBDPBsLbb1vIEYjSxg0hlUi6-9IFuthFNPZuxR6fRvJtVZbNIl-bNjJY3P9b6ILP7tsm2fqRmBUgzWPD9tXYQtXVJyEkW5VIJJcEQXTvMwE1MlCogAvyqyJzlL69V6mg6pFrEmI932pw9sPIUVgJJIpdVJ/s1600/hardcover_book_2.jpg"
+                alt="7 Day Reels Creator Book">
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="course-header">
+            <h1>Course Curriculum</h1>
+            <p>Immerse yourself in 3 hours of rich content spread
+                across 7 core modules. Designed to cover every aspect
+                of YouTube videos, from ideation to monetization, this
+                curriculum is your blueprint for YouTube success.</p>
+            <p><span>Table of content</span></p>
+        </div>
+
+        <!-- Module 1 -->
+        <div class="module">
+            <div class="module-title">
+                Module 1 - Mindset &
+                Goals<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4
+                    Lessons </span> <span class="arrow"><i class="fas fa-chevron-down"></i></span>
+            </div>
+            <div class="module-content">
+                <ul>
+                    <li><i class="fas fa-play-circle"></i>How I Got Started on YouTube <span>03:39 mins</span></li>
+                    <li><i class="fas fa-play-circle"></i>Get the Most from This Course <span>03:17 mins</span></li>
+                    <li><i class="fas fa-play-circle"></i>The YouTube Growth Blueprint <span>04:04 mins</span></li>
+                    <li><i class="fas fa-play-circle"></i>Mindset & Goal Planning <span>06:00 mins</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Module 2 -->
+        <div class="module">
+            <div class="module-title">
+                Module 2 - Niche & Profile
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3
+                    Lessons</span> <span class="arrow"><i class="fas fa-chevron-down"></i></span>
+            </div>
+            <div class="module-content">
+                <ul>
+                    <li><i class="fas fa-play-circle"></i>Find Your Unique Niche Using the RISE Framework <span>08:00
+                            mins</span></li>
+                    <li><i class="fas fa-play-circle"></i>The Art of Creating Impactful Video's<span>08:00 mins</span>
+                    </li>
+                    <li><i class="fas fa-play-circle"></i>Optimize Your YouTube Profile<span>08:00 mins</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Module 3 -->
+        <div class="module">
+            <div class="module-title">
+                Module 3 - Idea Generation
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3
+                    Lessons</span> <span class="arrow"><i class="fas fa-chevron-down"></i></span>
+            </div>
+            <div class="module-content">
+                <ul>
+                    <li><i class="fas fa-play-circle"></i>Understanding the Science Behind Viral Videos<span>08:00
+                            mins</span></li>
+                    <li><i class="fas fa-play-circle"></i>Find Endless Viral Ideas Using the Idea Capture System
+                        <span>08:00 mins</span>
+                    </li>
+                    <li><i class="fas fa-play-circle"></i>How to Find Trending Audio That Works<span>09:00 mins</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Module 4 -->
+        <div class="module">
+            <div class="module-title">
+                Module 4 - Shoot High Quality Videos
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3
+                    Lessons</span> <span class="arrow"><i class="fas fa-chevron-down"></i></span>
+            </div>
+            <div class="module-content">
+                <ul>
+                    <li><i class="fas fa-play-circle"></i>Fundamentals of Shooting High-Quality Videos from a
+                        Phone<span>09:00 mins</span></li>
+                    <li><i class="fas fa-play-circle"></i>How to Shoot Talking Head Videos Effectively on Phone
+                        <span>08:00 mins</span>
+                    </li>
+                    <li><i class="fas fa-play-circle"></i>How to Shoot Cinematic Videos Effectively on Phone<span>08:00
+                            mins</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Module 5 -->
+        <div class="module">
+            <div class="module-title">
+                Module 5 - Edit High Quality Videos
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4
+                    Lessons</span> <span class="arrow"><i class="fas fa-chevron-down"></i></span>
+            </div>
+            <div class="module-content">
+                <ul>
+                    <li><i class="fas fa-play-circle"></i>How I Edit Videos Within the YouTube App <span>10:00
+                            mins</span></li>
+                    <li><i class="fas fa-play-circle"></i>Mastering the VN Video Editor: A Step-by-Step Guide
+                        <span>10:00 mins</span>
+                    </li>
+                    <li><i class="fas fa-play-circle"></i>How to Edit 10 Videos in 1 Hour <span>08:00 mins</span></li>
+                    <li><i class="fas fa-play-circle"></i>Best Export Settings for Uploading High-Quality Videos
+                        <span>08:00 mins</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Module 7 -->
+        <div class="module">
+            <div class="module-title">
+                Module 7 - Monetization & Business Marketing <span>&nbsp;3 Lessons</span> <span class="arrow"><i
+                        class="fas fa-chevron-down"></i></span>
+            </div>
+            <div class="module-content">
+                <ul>
+                    <li><i class="fas fa-play-circle"></i>Monetizing Your Reels <span>07:00 mins</span></li>
+                    <li><i class="fas fa-play-circle"></i>Building Partnerships <span>05:00 mins</span></li>
+                    <li><i class="fas fa-play-circle"></i>Leveraging Sponsorships <span>05:00 mins</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Module 8 (Dummy Content) -->
+
+    </div>
+
+    </div>
+
+    <section class="journey-section">
+        <div class="left-content">
+            <h2>How the 7 Day YouTube Creator Fits into Your Journey?</h2>
+            <div class="highlighted-text">
+                <span>ARE YOU</span>
+                <i class="fa fa-long-arrow-right"></i>
+            </div>
+        </div>
+        <div class="right-content">
+            <div class="accordion">
+                <div class="accordion-item">
+                    <div class="accordion-header" data-target="#content1">
+                        &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;An Aspiring Creator &nbsp;
+                        <i class="fas fa-chevron-down toggle-icon"></i>
+                    </div>
+                    <div id="content1" class="accordion-content">
+                        <p>If you're dreaming of making a mark on YouTube, this
+                            course will provide you with the foundation and skills to
+                            start creating captivating videos..</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header" data-target="#content2">
+                        &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; An Artist &nbsp; &nbsp;
+                        <i class="fas fa-chevron-down toggle-icon"></i>
+                    </div>
+                    <div id="content2" class="accordion-content">
+                        <p>For those looking to amplify their art and influence
+                            through YouTube videos.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header" data-target="#content3">
+                        &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; An Influencer &nbsp; &nbsp;
+                        <i class="fas fa-chevron-down toggle-icon"></i>
+                    </div>
+                    <div id="content3" class="accordion-content">
+                        <p>For influencers aiming to boost their engagement and
+                            reach on YouTube, this course offers advanced
+                            strategies and insights.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header" data-target="#content4">
+                        &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A Homemaker &nbsp; &nbsp;
+                        <i class="fas fa-chevron-down toggle-icon"></i>
+                    </div>
+                    <div id="content4" class="accordion-content">
+                        <p>Learn how to use YouTube videos to share your
+                            passions, connect with a like-minded community, and
+                            create engaging content from the comfort of your home.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header" data-target="#content5">
+                        &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A Business Owner
+                        &nbsp; &nbsp;<i class="fas fa-chevron-down toggle-icon"></i>
+                    </div>
+                    <div id="content5" class="accordion-content">
+                        <p>Discover how to use YouTube videos to connect with
+                            your audience, promote your products or services, and
+                            grow your business's online presence.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="bonuses-section">
+        <h2>And with this course, you also get access to INR 5,000 worth of bonuses</h2>
+        <div class="bonuses-grid">
+            <div class="bonus-item">
+                <div class="icon">
+                    <i class="fas fa-clipboard-list"></i>
+                </div>
+                <h3>Templates & Checklists</h3>
+                <p>Ready-to-use templates and checklists to streamline your YouTube content creation process.</p>
+            </div>
+            <div class="bonus-item">
+                <div class="icon">
+                    <i class="fas fa-lightbulb"></i>
+                </div>
+                <h3>100+ High-Performing Video Ideas</h3>
+                <p>Access a curated list of successful video ideas
+                    applicable to any niche, providing instant creative
+                    inspiration.</p>
+            </div>
+            <br />
+            <div class="bonus-item">
+                <div class="icon">
+                    <i class="fas fa-comment-alt"></i>
+                </div>
+                <h3>ChatGPT Prompts</h3>
+                <p>Learn to use our special ChatGPT prompts for creating
+                    engaging video titles, descriptions, and other essential
+                    elements effortlessly.</p>
+            </div>
+
+            <div class="bonus-item">
+                <div class="icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3>Exclusive Community Access</h3>
+                <p>Join a supportive community where you can actively
+                    engage, collaborate, and grow together. It’s a space to
+                    share your YouTube successes, seek advice from peers,
+                    and build valuable connections.</p>
+            </div>
+        </div>
+    </div>
+
+    <section class="creators-section">
+        <h2>Cherished by your favorite creators <span class="heart-icon">❤</span></h2>
+        <div class="creators-container">
+            <div class="creator-card">
+                <div class="creator-photo">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhm2lQ45M8kp7-sdWecXGMG0ju4b3YSzkkGx6uVDddQWtNh3XtxVSN5NXWV1Zp3strLcTfPqaZZ09td7pcuZn-mUGXV4FN1HcrrgOzEN4ZFLIUP8Zn7l_ctnNlbiKaHaZqynMX1smr9R6IPFvtlweBYRdaVbW7kMr0rh8my77oOvmEIAzC92xkAqaiL7WnW/s1600/test-2.png"
+                        alt="Raunaq Sahni">
+                </div>
+                <div class="creator-info">
+                    <h3>@Monkey Magic <span>(Raunaq Sahni)</span></h3>
+                    <p>Sunny is an incredible photographer and strategy sorcerer! His photos/videos are like a burst of
+                        positivity, turning content creation into a joyful dance. If you're looking for someone to
+                        sprinkle magic on your content journey, Sunny is your guy!</p>
+                </div>
+            </div>
+            <div class="creator-card highlighted">
+                <div class="creator-photo">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhm2lQ45M8kp7-sdWecXGMG0ju4b3YSzkkGx6uVDddQWtNh3XtxVSN5NXWV1Zp3strLcTfPqaZZ09td7pcuZn-mUGXV4FN1HcrrgOzEN4ZFLIUP8Zn7l_ctnNlbiKaHaZqynMX1smr9R6IPFvtlweBYRdaVbW7kMr0rh8my77oOvmEIAzC92xkAqaiL7WnW/s1600/test-2.png"
+                        alt="Ganesh Vanare">
+                </div>
+                <div class="creator-info">
+                    <h3>@haram_khor_ <span>(Ganesh Vanare)</span></h3>
+                    <p>Sunny creates stunning visuals, mastering the art of storytelling. His Kashmir Reels are
+                        particularly soothing and well-crafted, providing a delightful visual experience. Watching his
+                        videos and photo series makes me feel really good.</p>
+                </div>
+            </div>
+            <div class="creator-card">
+                <div class="creator-photo">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhm2lQ45M8kp7-sdWecXGMG0ju4b3YSzkkGx6uVDddQWtNh3XtxVSN5NXWV1Zp3strLcTfPqaZZ09td7pcuZn-mUGXV4FN1HcrrgOzEN4ZFLIUP8Zn7l_ctnNlbiKaHaZqynMX1smr9R6IPFvtlweBYRdaVbW7kMr0rh8my77oOvmEIAzC92xkAqaiL7WnW/s1600/test-2.png"
+                        alt="Sanket Joshi">
+                </div>
+                <div class="creator-info">
+                    <h3>@sanketsjoshi <span>(Sanket Joshi)</span></h3>
+                    <p>Sunny is one of my favorites when it comes to visual storytelling. My favorite thing about his
+                        work is the amount of effort he puts into his research but at the same time how effortless the
+                        output looks. Informative with aesthetics on point; always looking forward to his content.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="subscribers-section">
+        <h2 class="section-heading">Loved by Subscribers <span class="heart">❤</span></h2>
+        <div class="reviews-container">
+            <div class="review-card">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi1M0se_YdwH2F-XCh9UB2mWP0aYk19ZFGO2kIJ5YBcNNHqwiRbospWUA5WxJEAm9_2-oYQrZBDMnW9tRHqVfZQBAbl6711HwIkWcFGmUOaQqTyS-fRyVGbUH7_DTCcUMQ0SOfnGfoNvjkTlaD5mIPcAuYWx71GdhnRioYyn7NriQl4Jx6wIJkrLKgdyjX3/s1600/sunn3.jpg"
+                    alt="Subscriber Review">
+            </div>
+            <div class="review-card">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi1M0se_YdwH2F-XCh9UB2mWP0aYk19ZFGO2kIJ5YBcNNHqwiRbospWUA5WxJEAm9_2-oYQrZBDMnW9tRHqVfZQBAbl6711HwIkWcFGmUOaQqTyS-fRyVGbUH7_DTCcUMQ0SOfnGfoNvjkTlaD5mIPcAuYWx71GdhnRioYyn7NriQl4Jx6wIJkrLKgdyjX3/s1600/sunn3.jpg"
+                    alt="Subscriber Review">
+            </div>
+            <div class="review-card">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi1M0se_YdwH2F-XCh9UB2mWP0aYk19ZFGO2kIJ5YBcNNHqwiRbospWUA5WxJEAm9_2-oYQrZBDMnW9tRHqVfZQBAbl6711HwIkWcFGmUOaQqTyS-fRyVGbUH7_DTCcUMQ0SOfnGfoNvjkTlaD5mIPcAuYWx71GdhnRioYyn7NriQl4Jx6wIJkrLKgdyjX3/s1600/sunn3.jpg"
+                    alt="Subscriber Review">
+            </div>
+        </div>
+        <a href="#" class="cta-button">APPLY NOW <i class="fas fa-arrow-right"></i></a>
+    </div>
+
+    <section class="faq-section">
+        <h1>Frequently Asked Questions</h1>
+        <div class="faq-item">
+            <label for="faq1"><span>Is this course for me?</span><i class="fas fa-chevron-down"></i></label>
+            <div class="faq-content">
+                <p>Absolutely! Whether you're just starting your journey on
+                    YouTube or already seeing some success, this course is
+                    perfect for you. It’s designed to boost skills at all levels,
+                    enhance your content and online presence, and
+                    ultimately drive growth in engagement and subscribers.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <label for="faq2"><span>What Sort of YouTube Channel is This Course Suitable
+                    For?</span><i class="fas fa-chevron-down"></i></label>
+            <div class="faq-content">
+                <p>This course is universally applicable, regardless of your
+                    video’s genre or style. The systems and processes
+                    shared can be effectively adapted to any niche or
+                    content style, making it a versatile tool for all YouTube
+                    creators.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <label for="faq3"><span>In Which Language Will This Course Be Taught?</span><i
+                    class="fas fa-chevron-down"></i></label>
+            <div class="faq-content">
+                <p>This course is taught in Tamil.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <label for="faq4"><span>What Experience with YouTube Do I Need to Have?</span><i
+                    class="fas fa-chevron-down"></i></label>
+            <div class="faq-content">
+                <p>None! This course is suitable for anyone, regardless of
+                    their YouTube experience. Just bring your enthusiasm
+                    for learning and growing on the platform.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <label for="faq5"><span>What If I Can't Complete the Course in 7 Days?</span><i
+                    class="fas fa-chevron-down"></i></label>
+            <div class="faq-content">
+                <p>No worries at all! You have lifetime access to the entire
+                    program, including all future content updates. You can
+                    progress at your own pace and revisit the material
+                    whenever needed.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <label for="faq6"><span>Why Is This Course Important for Me?</span><i
+                    class="fas fa-chevron-down"></i></label>
+            <div class="faq-content">
+                <p>In today's digital age, excelling on YouTube is crucial for building your brand, whether personal or
+                    business. This
+                    course is your fast track to mastering YouTube videos,
+                    offering essential tools and strategies to grow and stand
+                    out on the platform.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <label for="faq7"><span>Who Is This Course Not For?</span><i class="fas fa-chevron-down"></i></label>
+            <div class="faq-content">
+                <p>This course isn't a quick fix for instant viral success. If
+                    you're looking for a magic pill to achieve instant fame on
+                    YouTube without putting in the effort, this course may
+                    not meet your expectations. It's a comprehensive
+                    roadmap for YouTube success, but it requires dedication
+                    and the execution of the strategies provided.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <label for="faq8"><span>What Should I Do If I'm Facing Problems with Payment
+                    Processing?</span><i class="fas fa-chevron-down"></i></label>
+            <div class="faq-content">
+                <p>If you're encountering issues with payment methods like
+                    UPI, Debit Card, Credit Card, Netbanking, or EMI,
+                    please contact us at rajavidyalyawork@gmail.com.
+                    Include your name, email, and phone number, and we'll
+                    help resolve the issue.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <label for="faq9"><span>What Is the Refund Process If I’m Not Satisfied with the
+                    Course?</span><i class="fas fa-chevron-down"></i></label>
+            <div class="faq-content">
+                <p>As this is a digital product, we do not offer refunds. We
+                    encourage you to review the course details carefully
+                    before purchasing to ensure it meets your needs. If you
+                    have any questions or concerns, feel free to reach out to
+                    us for more information.</p>
+            </div>
+        </div>
+
+        </div>
+    </section>
+    <div class="footer">
+        <div class="content">
+            <p class="title">7 Day Reels Creator</p>
+            <p class="copyright">&copy;2024 Your name</p>
+            <div class="icons">
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sticky Strip -->
+    <div class="sticky-strip">
+        <div class="strip-content">
+            <span class="alert-text">Price Drop Alert - <strong>35% OFF</strong></span>
+            <button class="enroll-btn">ENROLL NOW</button>
+        </div>
+    </div>
+
+    <script>
+
+        document.querySelectorAll('.accordion-header').forEach(button => {
+            button.addEventListener('click', () => {
+                const accordionItem = button.parentElement;
+
+                // Toggle active class
+                accordionItem.classList.toggle('active');
+
+                // Collapse all other items
+                document.querySelectorAll('.accordion-item').forEach(item => {
+                    if (item !== accordionItem) {
+                        item.classList.remove('active');
+                    }
+                });
+            });
+        });
+
+
+        document.querySelectorAll('.module-title').forEach(module => {
+            module.addEventListener('click', function () {
+                // Hide all other modules
+                document.querySelectorAll('.module-title').forEach(otherModule => {
+                    if (otherModule !== this) {
+                        otherModule.classList.remove('active');
+                        const otherContent = otherModule.nextElementSibling;
+                        otherContent.classList.remove('expanded');
+                        otherModule.querySelector('.arrow i').classList.remove('rotated');
+                    }
+                });
+
+                // Toggle the clicked module
+                const content = this.nextElementSibling;
+                if (this.classList.contains('active')) {
+                    this.classList.remove('active');
+                    content.classList.remove('expanded');
+                    this.querySelector('.arrow i').classList.remove('rotated');
+                } else {
+                    this.classList.add('active');
+                    content.classList.add('expanded');
+                    this.querySelector('.arrow i').classList.add('rotated');
+                }
+            });
+        });
+
+        document.querySelectorAll('.accordion-header').forEach(item => {
+            item.addEventListener('click', event => {
+                const accordionItem = item.parentElement;
+                const toggleIcon = item.querySelector('.toggle-icon');
+
+                // Collapse other open items
+                document.querySelectorAll('.accordion-item').forEach(i => {
+                    if (i !== accordionItem) {
+                        i.classList.remove('active');
+                        i.querySelector('.accordion-content').style.maxHeight = 0;
+                        i.querySelector('.toggle-icon').style.transform = 'rotate(0deg)';
+                    }
+                });
+
+                // Toggle active class and content
+                accordionItem.classList.toggle('active');
+                const accordionContent = document.querySelector(item.getAttribute('data-target'));
+                if (accordionItem.classList.contains('active')) {
+                    accordionContent.style.maxHeight = accordionContent.scrollHeight + 'px';
+                    toggleIcon.style.transform = 'rotate(180deg)';
+                } else {
+                    accordionContent.style.maxHeight = 0;
+                    toggleIcon.style.transform = 'rotate(0deg)';
+                }
+            });
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const faqItems = document.querySelectorAll(".faq-item");
+
+            faqItems.forEach((item) => {
+                item.addEventListener("click", () => {
+                    // Close all other items
+                    faqItems.forEach((el) => {
+                        if (el !== item) {
+                            el.querySelector(".faq-content").style.maxHeight = null;
+                            el.querySelector("i").style.transform = "rotate(0deg)";
+                        }
+                    });
+
+                    // Toggle the current item's content
+                    const content = item.querySelector(".faq-content");
+                    if (content.style.maxHeight) {
+                        content.style.maxHeight = null;
+                        item.querySelector("i").style.transform = "rotate(0deg)";
+                    } else {
+                        content.style.maxHeight = content.scrollHeight + "px";
+                        item.querySelector("i").style.transform = "rotate(180deg)";
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+
+</html>
